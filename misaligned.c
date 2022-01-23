@@ -14,10 +14,15 @@ int printColorMap() {
     return i * j;
 }
 
+int testColorPair()
+{
+    return = testColorPairStub();
+}
+
 int main() {
     int result = printColorMap();
     assert(result == 25);
-    int match_found = testPairToNumber(BLACK, ORANGE, 12);
+    int match_found = testColorPair();
     assert(match_found == 1);
     printf("All is well (maybe!)\n");
     return 0;
