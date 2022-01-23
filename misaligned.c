@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include "misaligned_test_code.h"
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -16,6 +17,8 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
+    int match_found = testPairToNumber(BLACK, ORANGE, 12);
+    assert(match_found == 1);
     printf("All is well (maybe!)\n");
     return 0;
 }
