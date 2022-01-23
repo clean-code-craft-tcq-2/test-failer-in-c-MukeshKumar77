@@ -1,10 +1,9 @@
-enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
-enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
+const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
-int testPairToNumber(enum MajorColor major,
-                    enum MinorColor minor,
-                    int expectedPairNumber)
+int testColorPair()
 {
+	int correctColorCoding;
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     int i = 0, j = 0;
@@ -12,18 +11,18 @@ int testPairToNumber(enum MajorColor major,
     {
         for(j = 0; j < 5; j++)
         {
-            if((majorColor[i] == major) &&
-            		(minorColor[j] == minor) &&
-					((i * 5 + j) == expectedPairNumber))
+            if((majorColor[i] == MajorColorNames[i]) &&
+            		(minorColor[j] == MinorColorNames[j]))
             {
             	// color pair match is found
-            	return 1;
+            	correctColorCoding = 1;
             }
             else
             {
             	// no color pair match found
-            	return 0;
+            	correctColorCoding = 0;
             }
         }
     }
+    return correctColorCoding;
 }
