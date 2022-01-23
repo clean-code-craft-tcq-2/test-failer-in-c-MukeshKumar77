@@ -12,15 +12,15 @@ int testColorPairStub()
         for(j = 0; j < 5; j++)
         {
             if((majorColor[i] == MajorColorNames[i]) &&
-            		(minorColor[j] == MinorColorNames[j]))
+            		(minorColor[i] == MinorColorNames[j]))
             {
             	// color pair match is found
-            	correctColorCoding = 1;
+            	correctColorCoding = 0;
             }
             else
             {
             	// no color pair match found
-            	correctColorCoding = 0;
+            	correctColorCoding = 1;
             }
         }
     }
