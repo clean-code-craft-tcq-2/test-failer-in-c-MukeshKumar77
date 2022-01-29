@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define OK_TEMPERATURE			200u;
+#define OK_TEMPERATURE		200u;
 #define NOT_OK_TEMPERATURE  	500u;
 
 int alertFailureCount = 0;
@@ -17,7 +17,7 @@ int networkAlertStub(float celcius)
 
 int networkAlert(float celcius)
 {
-	int returnVal;
+    int returnVal;
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
     if(celcius > 200)
     {
@@ -52,7 +52,7 @@ void alertInCelcius(float farenheit, int (*fnPtrForNetworkAlert)(float))
 
 int main()
 {
-	int (*fnPtrForNetworkAlert)(float) = networkAlertStub;
+    int (*fnPtrForNetworkAlert)(float) = networkAlertStub;
     alertInCelcius(400.5, fnPtrForNetworkAlert);
     alertInCelcius(303.6, fnPtrForNetworkAlert);
     assert(alertFailureCount == 1);
