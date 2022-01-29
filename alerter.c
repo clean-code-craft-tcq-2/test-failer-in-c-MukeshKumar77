@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define OK_TEMPERATURE		200u;
-#define NOT_OK_TEMPERATURE  	500u;
+#define OK_TEMPERATURE		    200
+#define NOT_OK_TEMPERATURE  	500
 
 int alertFailureCount = 0;
 
