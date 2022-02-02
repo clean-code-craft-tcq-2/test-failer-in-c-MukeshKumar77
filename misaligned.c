@@ -14,7 +14,7 @@ struct ColorPair
     char MinorColorName[15];
 };
 
-struct ColorPair colorPair[COLOR_PAIR_COUNT];
+struct ColorPair colorPairInfo[COLOR_PAIR_COUNT];
 
 void printToConsole(struct ColorPair* colorPairPtr, int pairIndex)
 {
@@ -26,15 +26,10 @@ int printColorMap(struct ColorPair* colorPairInfoPtr) {
     int i = 0, j = 0, pairNumberIndex = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-        	colorPair[pairNumberIndex].pairNumber = (i * 5 + j + 1);
-        	strcpy(colorPair[pairNumberIndex].MajorColorName , majorColor[i]);
-        	strcpy(colorPair[pairNumberIndex].MinorColorName , minorColor[j]);
-            printToConsole(colorPair, pairNumberIndex);
-
-            //copy the same color pair information to buffer for testing
-            colorPairInfoPtr[pairNumberIndex].pairNumber = (i * 5 + j + 1);
+        	colorPairInfoPtr[pairNumberIndex].pairNumber = (i * 5 + j + 1);
         	strcpy(colorPairInfoPtr[pairNumberIndex].MajorColorName , majorColor[i]);
         	strcpy(colorPairInfoPtr[pairNumberIndex].MinorColorName , minorColor[j]);
+            printToConsole(colorPairInfoPtr, pairNumberIndex);
 
             pairNumberIndex++;
         }
@@ -42,21 +37,21 @@ int printColorMap(struct ColorPair* colorPairInfoPtr) {
     return i * j;
 }
 
-void testColorMap(struct ColorPair* colorPairInfoPtr)
+void testColorMap(struct ColorPair* testcolorPairInfoPtr)
 {
-
 	int i = 0, j = 0, pairNumberIndex = 0;
-	    for(i = 0; i < 5; i++) {
-	        for(j = 0; j < 5; j++) {
-	        	assert(colorPairInfoPtr[pairNumberIndex].pairNumber == (i * 5 + j + 1));
-	        	assert(colorPairInfoPtr[pairNumberIndex].MajorColorName == majorColor[i]);
-	        	assert(colorPairInfoPtr[pairNumberIndex].MinorColorName == minorColor[j]);
-	        }
-	    }
+	for(i = 0; i < 5; i++) {
+	    for(j = 0; j < 5; j++) {
+	        assert(testcolorPairInfoPtr[pairNumberIndex].pairNumber == (i * 5 + j + 1));
+	        assert(!(strcmp(testcolorPairInfoPtr[pairNumberIndex].MajorColorName , majorColor[i])));
+	        assert(!(strcmp(testcolorPairInfoPtr[pairNumberIndex].MinorColorName , minorColor[j])));
+
+	        pairNumberIndex++;
+	     }
+         }
 }
 
 int main() {
-	struct ColorPair colorPairInfo[COLOR_PAIR_COUNT];
     int result = printColorMap(colorPairInfo);
     assert(result == 25);
     testColorMap(colorPairInfo);
