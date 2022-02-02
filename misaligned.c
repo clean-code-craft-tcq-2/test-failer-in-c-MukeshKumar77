@@ -32,7 +32,7 @@ int printColorMap(struct ColorPair* colorPairInfoPtr) {
             printToConsole(colorPair, pairNumberIndex);
 
             //copy the same color pair information to buffer for testing
-            colorPairInfoPtr[pairNumberIndex].pairNumber = (i * 5 + j);
+            colorPairInfoPtr[pairNumberIndex].pairNumber = (i * 5 + j + 1);
         	strcpy(colorPairInfoPtr[pairNumberIndex].MajorColorName , majorColor[i]);
         	strcpy(colorPairInfoPtr[pairNumberIndex].MinorColorName , minorColor[j]);
 
