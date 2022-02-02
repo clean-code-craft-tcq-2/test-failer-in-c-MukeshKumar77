@@ -26,15 +26,15 @@ int printColorMap(struct ColorPair* colorPairInfoPtr) {
     int i = 0, j = 0, pairNumberIndex = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-        	colorPair[pairNumberIndex].pairNumber = (i * 5 + j);
+        	colorPair[pairNumberIndex].pairNumber = (i * 5 + j + 1);
         	strcpy(colorPair[pairNumberIndex].MajorColorName , majorColor[i]);
-        	strcpy(colorPair[pairNumberIndex].MinorColorName , minorColor[i]);
+        	strcpy(colorPair[pairNumberIndex].MinorColorName , minorColor[j]);
             printToConsole(colorPair, pairNumberIndex);
 
             //copy the same color pair information to buffer for testing
             colorPairInfoPtr[pairNumberIndex].pairNumber = (i * 5 + j);
         	strcpy(colorPairInfoPtr[pairNumberIndex].MajorColorName , majorColor[i]);
-        	strcpy(colorPairInfoPtr[pairNumberIndex].MinorColorName , minorColor[i]);
+        	strcpy(colorPairInfoPtr[pairNumberIndex].MinorColorName , minorColor[j]);
 
             pairNumberIndex++;
         }
