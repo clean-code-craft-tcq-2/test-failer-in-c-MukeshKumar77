@@ -25,7 +25,15 @@ int networkAlertStub(float celcius)
 
 int networkAlert(float celcius)
 {
-    return 0;
+    if(celcius > 200)
+    {
+        returnVal =  NOT_OK_TEMPERATURE;
+    }
+    else
+    {
+    	returnVal =  OK_TEMPERATURE;
+    }
+    return returnVal;
 }
 
 float convertFarenheitToCelcius(float farenheit)
