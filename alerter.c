@@ -25,6 +25,7 @@ int networkAlertStub(float celcius)
 
 int networkAlert(float celcius)
 {
+    int returnVal;
     if(celcius > 200)
     {
         returnVal =  NOT_OK_TEMPERATURE;
