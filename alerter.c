@@ -25,18 +25,7 @@ int networkAlertStub(float celcius)
 
 int networkAlert(float celcius)
 {
-    int returnVal;
-    printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    if(celcius > 200)
-    {
-        returnVal =  NOT_OK_TEMPERATURE;
-        alertFailureCount++;
-    }
-    else
-    {
-    	returnVal =  OK_TEMPERATURE;
-    }
-    return returnVal;
+    return 0;
 }
 
 float convertFarenheitToCelcius(float farenheit)
@@ -58,13 +47,17 @@ void alertInCelcius(float farenheit, int (*fnPtrForNetworkAlert)(float))
     }
 }
 
-int main()
-{
+void testThresholdOfTemperature(void){
     int (*fnPtrForNetworkAlert)(float) = networkAlertStub;
     alertInCelcius(400.5, fnPtrForNetworkAlert);
     alertInCelcius(303.6, fnPtrForNetworkAlert);
     assert(alertFailureCount == 1);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
+}
+
+int main()
+{
+    testThresholdOfTemperature();
     return 0;
 }
